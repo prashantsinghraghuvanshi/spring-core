@@ -1,9 +1,10 @@
 package dev.prashant.pojo;
 
+import dev.prashant.VehicleService.Vehicle;
 import org.springframework.stereotype.Component;
 
 @Component
-public class Car {
+public class Car implements Vehicle {
 //    Engine engine;
 
     // constructor injection
@@ -15,8 +16,8 @@ public class Car {
 
     public Car(){}
 
+    @Override
     public void start(){
-//        engine.start();
-        System.out.println("Car is running");
+        System.out.println("Car Started");
     }
 }
