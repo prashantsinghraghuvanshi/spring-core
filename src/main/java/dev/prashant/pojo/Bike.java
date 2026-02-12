@@ -12,14 +12,21 @@ public class Bike implements Vehicle {
     @Value(value = "petrol")
     private String fueltype;
 
+    private String name;
+
     @Override
     public void start() {
         System.out.println("Bike Started");
-        System.out.println("Fuel Type : "+fueltype);
     }
 
-    public Bike(){
+    public Bike(@Value(value = "RE Hunter") String name){
+        this.name=name;
         System.out.println("Bike object created");
     }
 
+    @Override
+    public void details() {
+        System.out.println("Bike name : "+name);
+        System.out.println("Fuel Type : "+fueltype);
+    }
 }
