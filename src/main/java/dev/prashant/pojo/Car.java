@@ -1,11 +1,13 @@
 package dev.prashant.pojo;
 
 import dev.prashant.VehicleService.Vehicle;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
 public class Car implements Vehicle {
 //    Engine engine;
+    private String name;
 
     // constructor injection
 //    public Car(Engine engine){
@@ -14,10 +16,13 @@ public class Car implements Vehicle {
 //        System.out.println("Engine initialized in car");
 //    }
 
-    public Car(){}
+    public Car(@Value(value = "swift dezire") String name){
+        this.name=name;
+    }
 
     @Override
     public void start(){
         System.out.println("Car Started");
+        System.out.println("Car name : "+name);
     }
 }

@@ -10,13 +10,17 @@ public class Person {
 //    @Autowired - for field injection
 //    private Car car;
 
-    @Autowired
-    @Qualifier(value = "car")
-    private Vehicle vehicle;
+//    @Autowired
+//    @Qualifier(value = "car")   // Qualifier has more priority than Primary
+    private final Vehicle vehicle;
 
-    public Person(){
-        System.out.println("Car initialized- no arg constructor");
+    public Person(@Qualifier(value = "car") Vehicle vehicle){
+        this.vehicle=vehicle;
     }
+
+//    public Person(){
+//        System.out.println("Car initialized- no arg constructor");
+//    }
 
 //    @Autowired
 //    public Person(Car car){

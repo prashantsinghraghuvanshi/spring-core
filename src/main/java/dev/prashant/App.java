@@ -9,7 +9,9 @@ public class App {
     public static void main(String[] args) {
         ApplicationContext context = new AnnotationConfigApplicationContext(MyConfiguration.class);
 
-        Person person=(Person) context.getBean(Person.class);
+        // downcast if using bean name
+        // no need to downcast if using .class
+        Person person= context.getBean(Person.class);
 
         person.drive();
     }
